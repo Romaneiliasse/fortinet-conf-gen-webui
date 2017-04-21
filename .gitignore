@@ -8,3 +8,5 @@
 Homestead.json
 Homestead.yaml
 .env
+/public/fonts/
+/public/mix-manifest.json

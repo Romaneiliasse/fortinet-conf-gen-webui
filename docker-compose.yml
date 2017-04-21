@@ -1,0 +1,9 @@
+version: '2'
+services:
+  webserver:
+    image: zolweb/php7
+    volumes:
+      - "./:/data"
+    entrypoint: "/bin/bash -cxe 'cd /data; php ./artisan --host=0.0.0.0 --port=80 serve'"
+    ports:
+      - 8080:80
