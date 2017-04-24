@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Flash messages Provider...
+         */
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*
