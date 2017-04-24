@@ -29,7 +29,7 @@ class MainController extends Controller {
         flash('Le fichier n\'a pas &eacute;t&eacute; correctement envoy&eacute;', 'danger');
       }
     }
-    catch(Exception $e) {
+    catch(\Exception $e) {
       flash($e->getMessage(), 'danger');
     }
 
