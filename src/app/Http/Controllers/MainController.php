@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Fortinet\ConfGenerator\Loader\ExcelLoader;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class MainController extends Controller {
 
+  const TAB_INFOS = "Suivi";
+  const XLS_FILE= "collect_file.xlsx";
+
   private function getXlsVersion()
   {
-    return "0.0";
+    $file = public_path() . "/" . self::XLS_FILE;
+    $sheet = IOFactory::load($file)->getSheetByName(self::TAB_INFOS);
+    $version = $sheet->getCell("E5")->getValue();
+
+    return $version;
   }
 
   public function index()

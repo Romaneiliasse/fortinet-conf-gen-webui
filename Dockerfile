@@ -4,7 +4,7 @@ COPY src /app
 
 RUN apk update \
     && apk add nodejs wget git \
-    && rm -rf /app/.git /app/.gitignore /app/*.md /app/Dockerfile /app/docker-compose.yml \
+    && rm -rf /app/.git /app/.gitignore /app/*.md \
     && cd /app/ \
     && wget https://getcomposer.org/composer.phar \
     && php composer.phar install \
