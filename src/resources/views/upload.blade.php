@@ -7,7 +7,7 @@
     <div class="container col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Configuration générée <a class="btn btn-success btn-sm"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h3>
+          <h3 class="panel-title">Configuration générée <a class="btn btn-success btn-sm" href="{{ route('download') }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h3>
         </div>
         <div class="panel-body">
           <pre>{{ $conf }}</pre>

@@ -1,6 +1,15 @@
 version: '2'
 services:
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
+
   webserver:
     build: .
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
     ports:
       - 8442:80

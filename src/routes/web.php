@@ -13,3 +13,4 @@
 
 Route::get('/', 'MainController@index')->name('index');
 Route::post('/upload', 'MainController@upload')->name('upload');
+Route::get('/download', 'MainController@download')->name('download');

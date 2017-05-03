@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Fortinet\ConfGenerator\Loader\ExcelLoader;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Session;
 
 class MainController extends Controller {
 
@@ -41,7 +43,17 @@ class MainController extends Controller {
       flash($e->getMessage(), 'danger');
     }
 
+    Redis::set('conf:' . Session::getId(), $conf);
+    Redis::expire('conf:' . Session::getId(), 3600);
+
     return view('upload')->with('version', $this->getXlsVersion())
                          ->with('conf', $conf);
+  }
+
+  public function download()
+  {
+    $conf = Redis::get('conf:' . Session::getId());
+
+    return response($conf, 200)->header('Content-Type', 'text/plain');
   }
 }
