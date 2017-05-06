@@ -1,7 +1,7 @@
 pipeline:
   docker:
     image: plugins/docker
-    username: invartam@gmail.com
+    username: invartam
     password: ben10121989
     email: invartam@gmail.com
     repo: invartam/fortinet-conf-gen-webui
