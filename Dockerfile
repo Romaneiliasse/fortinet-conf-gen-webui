@@ -2,8 +2,7 @@ FROM invartam/docker-alpine-php-fpm-advanced
 
 COPY src /app
 
-RUN apk update \
-    && apk add nodejs wget git \
+RUN apk --no-cache add nodejs wget git \
     && rm -rf /app/.git /app/.gitignore /app/*.md \
     && cd /app/ \
     && wget https://getcomposer.org/composer.phar \
